@@ -1,0 +1,48 @@
+1. 
+A Clockwork Orange - String
+42 - Integer
+09/02/1945 - Date
+98.7 - Float
+15.99 - Float
+
+2. A database would be used when there might be multiple instances of our program being used like a social network being accessed by millions of users at one time. because we don’t want our file to lock out other processes or overwrite any information we use a database. A text file would be used when only one instance of our program is being run.
+
+3. SQL is a declarative rather than a procedural language. The database engine handles the algorithm to find the data so that all we need to do is tell it what to find.
+
+4. A database contains a collection of tables that combine related data. Each table have rows and columns that when intersect give a cell containing a piece of data. A specialized unique ID is assigned to each row to ensure each row can be identified independently without conflict. 
+
+5. 
+- Table is a group of rows and columns where columns contain the x axis and rows contain the y axis. Columns have heading that explain the data in the column and a row is usually accompanied by a unique ID.
+- Row is a group of data pertaining to a one unit of a collection of related data. It usually has a unique ID to differentiate it from the rest of the rows.
+- Column is a group of related types of data under one heading.
+- Value is an intersection between a column and a row, a cell, where only one value is represented and it has one type.
+
+6. 
+- Integer
+- String
+- Date
+
+7. This query selects the date and amount from payments. It also selects the amounts from payments that are greater than 500. It also selects all in payments where payee is equal to “Mega Foods”. The results will be:
+- Date and Amount columns, all rows
+- Amount column, row 1 - 1500.00
+- All columns, row 3 
+
+8. 
+```
+SELECT email, signup
+FROM users
+WHERE name = “DeAndre Data”;
+
+SELECT userid
+FROM users
+WHERE email = “aleesia.algorithm@uw.edu”;
+
+SELECT * 
+FROM users
+WHERE userid = 4;
+```
+
+- Email and Signup columns, row 2
+- Userid column, row 1
+- All columns, row 4
+
