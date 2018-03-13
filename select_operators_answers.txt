@@ -1,0 +1,110 @@
+1. 
+SELECT column-1, column-2, column-3 ...
+FROM table-1, table-2 ...
+WHERE [condition];
+
+2. lg-LG-ne-AON
+Less Than
+Greater Than
+
+Less Than or Equal To
+Greater Than or Equal To
+
+Not Equal To
+Equal To
+
+And
+Or
+Not
+
+3. 
+```
+pets=# SELECT name, gender, age
+pets-# FROM dogs
+pets-# WHERE breed LIKE '%labrador%';
+  name  | gender | age 
+--------+--------+-----
+ Boujee | F      |   3
+ Marley | M      |   0
+(2 rows)
+```
+
+```
+pets=# SELECT id
+pets-# FROM dogs
+pets-# WHERE age < 1;
+  id   
+-------
+ 10002
+ 10004
+(2 rows)
+```
+
+```
+pets=# SELECT name, age
+pets-# FROM dogs 
+pets-# WHERE gender = 'F' AND weight > 35;
+  name  | age 
+--------+-----
+ Boujee |   3
+(1 row)
+```
+
+```
+pets=# SELECT *
+pets-# FROM dogs
+pets-# WHERE breed NOT LIKE '%shepherd%';
+  id   |   name    | gender | age | weight |       breed        | intake_date | in_foster  
+-------+-----------+--------+-----+--------+--------------------+-------------+------------
+ 10001 | Boujee    | F      |   3 |     36 | labrador poodle    | 2017-06-22  | 
+ 10002 | Munchkin  | F      |   0 |      8 | dachsund chihuahua | 2017-01-13  | 2017-01-31
+ 10004 | Marley    | M      |   0 |     10 | labrador           | 2017-05-04  | 2016-06-20
+ 10006 | Marmaduke | M      |   7 |    150 | great dane         | 2016-03-22  | 2016-05-15
+ 10007 | Rosco     | M      |   5 |    180 | rottweiler         | 2017-04-01  | 
+(5 rows)
+```
+
+```
+pets=# SELECT id, age, weight, breed
+pets-# FROM dogs
+pets-# WHERE weight > 60 OR breed LIKE 'great dane%';
+  id   | age | weight |   breed    
+-------+-----+--------+------------
+ 10006 |   7 |    150 | great dane
+ 10007 |   5 |    180 | rottweiler
+(2 rows)
+```
+
+5. 
+```
+SELECT * FROM cats;
+```
+
+```
+SELECT min(id), name, gender, age, intake_date, adoption_date
+FROM cats
+GROUP BY age
+```
+
+```
+SELECT name FROM cats;
+```
+
+6. 
+- <
+A height of a male less than 1.77 cm.
+- >
+Years of experience greater that 1.
+- <=
+Size of an engine less than or equal to 50l
+- >=
+The distance between a satellite and the earth greater than or equal to 700km
+- <>
+The amount an object bounces not equal to 0.
+- =
+The amount of seconds it takes someone to say pneumonoultramicroscopicsilicovolcanoconiosis equal to 3.
+
+7. 
+- column name, row 2 and 5
+- column name, row 1, 2, 4 and 5
+- column id, row 3 and 4
