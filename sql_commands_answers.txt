@@ -71,11 +71,11 @@ CREATE TABLE library (
 ```
 
 ```
-INSERT INTO library (isbn, title, author, genre, publishing_date, total_copies, available_copies) 
+INSERT INTO library ("isbn", "title", "author", "genre", "publishing_date", "total_copies", "available_copies") 
 VALUES 
-(0201633612, ‘Design Patterns: Elements of Reusable Object-Oriented Software’, ‘Erich Gamma’, ‘Computer Software’, 10/21/1994, 20, 7),
-(0321721330, ‘Practical Object-Oriented Design in Ruby: An Agile Primer’, ‘Sandi Metz’, ‘Computer Software’, 01/01/2012, 5, 1), 
-(0321584104,  Eloquent Ruby’, ’Russ Olsen’, ‘Computer Software’, 01/01/2011, 12, 9); 
+(0201633612, 'Design Patterns Elements of Reusable Object-Oriented Software', 'Erich Gamma', 'Computer Software', '10/21/1994', 20, 7),
+(0321721330, 'Practical Object-Oriented Design in Ruby: An Agile Primer', 'Sandi Metz', 'Computer Software', '01/01/2012', 5, 1), 
+(0321584104,  'Eloquent Ruby', 'Russ Olsen', 'Computer Software', '01/01/2011', 12, 9); 
 ```
 
 ```
@@ -91,7 +91,7 @@ DELETE FROM library WHERE isbn = 0321721330;
 CREATE TABLE satellites (
    id integer,
    name text,
-   year_launched date YEAR,
+   year_launched smallint,
    country text,
    description text,
    orbiting_body text,
@@ -103,10 +103,9 @@ CREATE TABLE satellites (
 ```
 INSERT INTO satellites (id, name, year_launched, country, description, orbiting_body, is_operating, miles_from_earth) 
 VALUES 
-(1222223, ‘Ichigo’, 1982, ‘Japan’, ‘GPS Satellite’, ‘Hueco Mundo’, true, 12552),
-(1222224, ‘Wakanda’, 1990, ‘South Africa’, ‘Intelligence Satellite’, ‘Mars’, true, 438), 
-(1222225,  ‘Death Star’, 2017, ‘USA 😊’, ‘Weaponized Satellite’, ‘Coruscant’, false, 22233); 
-```
+(1222223, 'Ichigo', 1982, 'Japan', 'GPS Satellite', 'Hueco Mundo', true, 12552),
+(1222224, 'Wakanda', 1990, 'South Africa', 'Intelligence Satellite', 'Mars', true, 438), 
+(1222225,  'Death Star', 2017, 'USA', 'Weaponized Satellite', 'Coruscant', false, 22233); ```
 
 ```
 DELETE FROM satellites WHERE id = 1222225;
@@ -128,13 +127,14 @@ CREATE TABLE emails (
    read boolean,
    id_email_chain integer
 );
+```
 
 ```
-INSERT INTO emails (id, subject_line, sender, addition_recipients, email_body, time_stamp, read, id_email_chain) 
+INSERT INTO emails (id, subject_line, sender, additional_recipients, email_body, time_stamp, read, id_email_chain) 
 VALUES 
-(2223, ‘[Bloc] [Assignment] Submission approved’, ‘no-reply@bloc.io’, {}, ‘Bloc logo…’, TIMESTAMP ‘2018-03-12 10:23:54’, true, 2),
-(2224, ‘[Bloc] [Assignment] Revision requested’, ‘no-reply@bloc.io’, {}, ‘Bloc logo...’, TIMESTAMP ‘2018-03-13 18:23:54’, true, 2), 
-(2225,  ‘Congratulate Kwena Mokgohlwa on the new position’, ‘messages-noreply@linkedin.com’, {}, ‘LinkedIn logo...’, TIMESTAMP ‘2018-05-19 10:23:54’, false, 2); 
+(2223, '[Bloc] [Assignment] Submission approved', 'no-reply@bloc.io', '{"bob@bloc.io", "help@bloc.io"}', 'Bloc logo...', TIMESTAMP '2018-03-12 10:23:54', true, 2),
+(2224, '[Bloc] [Assignment] Revision requested', 'no-reply@bloc.io', '{"tim@bloc.io", "help@bloc.io"}', 'Bloc logo...', TIMESTAMP '2018-03-13 18:23:54', true, 2), 
+(2225, 'Congratulate Kwena Mokgohlwa on the new position', 'messages-noreply@linkedin.com', '{"zury@linkedin.com", "ron@linkedin.com"}', 'LinkedIn logo...', TIMESTAMP '2018-05-19 10:23:54', false, 2); 
 ```
 
 ```
