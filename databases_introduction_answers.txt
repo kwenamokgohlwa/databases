@@ -31,11 +31,11 @@ A Clockwork Orange - String
 ```
 SELECT email, signup
 FROM users
-WHERE name = “DeAndre Data”;
+WHERE name = 'DeAndre Data';
 
 SELECT userid
 FROM users
-WHERE email = “aleesia.algorithm@uw.edu”;
+WHERE email = 'aleesia.algorithm@uw.edu';
 
 SELECT * 
 FROM users
