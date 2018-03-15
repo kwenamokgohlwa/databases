@@ -1,0 +1,116 @@
+1. Using a select with a join statement.
+
+2. 
+INNER JOIN
+A method of combining tables which produces one row only when the join condition is met. Basically it returns the rows where the data from both tables have values.
+- A list of customers who placed an order and the details of the order they placed, tase customer and table order. 
+
+LEFT OUTER JOIN
+A method to append information about table b to table a regardless of whether table b's rows have matching values.
+- Order date and order amount from table orders to table customers regardless of whether a customer placed an order.
+
+RIGHT OUTER JOIN
+A method to append information about table b to table a regardless of whether table a's rows have matching values.
+- Order date and order amount from table orders to table customers regardless of whether a customer name or surname was saved at the time of storage.
+
+3. A primary key is a unique key that differentiates one record from another. A foreign key is another unique identifier that is a primary key from another table that is placed in the table in order to create a relationship between the two.
+- A primary key example would be your student id at bloc that uniquely identifies you as a student.
+- A foreign key example would be the key of the course, course id, you are on to link to a course table where that foreign key is the primary key.
+
+4. Aliasing is the practice of giving tables aliases that can be used as short keys in your statements to increase readability and make writability. 
+
+5. 
+```
+SELECT professor.name, compensation.salary, compensation.vacation_days 
+FROM professor AS p
+JOIN compensation AS c ON p.id = c.professor_id;
+``` 
+
+6. From my research I have determined that NATURAL JOIN is just a join with easier syntax making it the syntactical sugar version in ideal case to join data. There is one difference however, the NATURAL JOIN only returns the matching columns once whereas using SELECT * combined with an INNER JOIN can return the primary key twice.
+- An example would be when I want to neatly return all satellite table data joined with all astronaut table data without duplicating any columns.
+
+7. 
+```
+SELECT * 
+FROM employees
+NATURAL JOIN shifts;
+```
+
+8. 
+```
+SELECT * 
+FROM volunteers
+RIGHT OUTER JOIN dogs    
+ON volunteers.foster_id = dog.id; 
+```
+
+```
+SELECT adopters.first_name, dogs.name, cats.name
+FROM adopters
+JOIN dogs ON dogs.in_foster > '2018-02-15'
+JOIN cats ON cats.adoption_date > '2018-02-15;
+```
+
+```
+SELECT *
+FROM adopters
+JOIN adoptions
+ON adopters.id = adoptions.adopter
+WHERE adoptions.dog = null;
+```
+
+```
+SELECT *
+FROM dogs, cats
+WHERE dogs.in_foster = null OR cats.adoption_date = null;
+```
+
+9. 
+```
+Select * 
+FROM adopter
+JOIN adoptions ON adopter.id = adoptions.adopter
+WHERE adoptions.cats = 'Seashell';
+```
+
+10.
+```
+SELECT * 
+FROM books AS b
+JOIN holds AS h ON b.isbn = h.isbn
+JOIN patrons AS p ON h.user_id = p.id
+WHERE book.title = 'Harry Potter and the Sorcerer's Stone'
+ORDER BY h.date;
+```
+
+```
+SELECT title, checked_out_date, checked_in_date
+FROM books AS b
+JOIN transactions AS t ON b.isbn = t.isbn
+```
+
+```
+SELECT title, checked_out_date, checked_in_date
+FROM books AS b
+JOIN transactions AS t ON b.isbn = t.isbn
+```
+
+```
+SELECT DATEDIFF(day, transactions.checked_out_date, transactions.checked_in_date) 
+FROM transactions
+WHERE transactions.checked_out_date > '2018-02-15';
+```
+
+```
+SELECT *
+FROM books AS b
+JOIN transactions AS t ON b.isbn = t.isbn
+WHERE transactions.checked_out_date < '2013-03-15';
+```
+
+```
+SELECT *
+FROM patrons AS p
+RIGHT OUTER JOIN transactions AS t ON t.user_id = p.id 
+JOIN books AS b ON b.isbn = t.isbn
+```
